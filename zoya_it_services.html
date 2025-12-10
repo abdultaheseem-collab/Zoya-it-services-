@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zoya IT Services</title>
+    <style>
+        /* Google Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700&display=swap');
+
+        /* Reset and base styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f9fc;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: #0d47a1;
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            font-weight: 700;
+            font-size: 2rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            font-weight: 600;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            background-color: #1565c0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(13, 71, 161, 0.7);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .hero .btn {
+            background-color: #ffc107;
+            color: #0d47a1;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 193, 7, 0.5);
+        }
+
+        .hero .btn:hover {
+            background-color: #ffca28;
+        }
+
+        /* About Section */
+        section.about {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        section.about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #0d47a1;
+            font-weight: 700;
+        }
+
+        section.about p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Services Section */
+        section.services {
+            background: #e3f2fd;
+            padding: 60px 20px;
+        }
+
+        section.services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #0d47a1;
+            font-weight: 700;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .service-item {
+            background: white;
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 15px rgb(13 71 161 / 0.1);
+            transition: transform 0.3s ease;
+            cursor: default;
+            text-align: center;
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgb(13 71 161 / 0.2);
+        }
+
+        .service-item h3 {
+            color: #0d47a1;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-item p {
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        /* Experience Section */
+        section.experience {
+            background: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        section.experience h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #0d47a1;
+            font-weight: 700;
+        }
+
+        section.experience p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: auto;
+            color: #444;
+            font-weight: 600;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        section.contact {
+            background: #0d47a1;
+            color: white;
+            padding: 60px 20px;
+        }
+
+        section.contact h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 700;
+        }
+
+        .contact-info {
+            max-width: 800px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p span {
+            font-weight: 700;
+            min-width: 100px;
+        }
+
+        .contact-info a {
+            color: #ffc107;
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        /* Footer */
+        footer {
+            background: #092a60;
+            color: #ccc;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+
+            section.services .service-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Zoya IT Services</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Trusted Computer & Laptop Hardware and Software Solutions</h2>
+            <p>Highly trained service engineers delivering professional support with 15 years of experience.</p>
+            <button onclick="document.location='#contact'" class="btn" aria-label="Contact Zoya">Contact Us</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Zoya</h2>
+        <p>At Zoya, we specialize in comprehensive hardware and software solutions for computers and laptops. Our team consists of highly trained service engineers committed to providing efficiency, quality repairs, and tailored solutions to meet your technology needs. Our proprietor, Mohammed Abdul Thahseen, brings over 15 years of valuable experience working in Saudi Arabia, ensuring expert insights and premium service delivery.</p>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-grid">
+            <div class="service-item">
+                <h3>Hardware Repairs</h3>
+                <p>Diagnosis and repair of laptop and computer hardware issues including motherboard, display, keyboard, power supply, and more.</p>
+            </div>
+            <div class="service-item">
+                <h3>Software Solutions</h3>
+                <p>Installation, update, and troubleshooting of operating systems, software applications, virus removal, and system optimization.</p>
+            </div>
+            <div class="service-item">
+                <h3>Custom Builds & Upgrades</h3>
+                <p>Custom computer builds and component upgrades to boost performance tailored to your unique requirements and budget.</p>
+            </div>
+            <div class="service-item">
+                <h3>Data Recovery</h3>
+                <p>Professional data recovery services for corrupted, formatted, or damaged hard drives and SSDs with high success rates.</p>
+            </div>
+            <div class="service-item">
+                <h3>Network Support</h3>
+                <p>Setup and troubleshooting of wired and wireless networks, ensuring smooth and secure connectivity.</p>
+            </div>
+            <div class="service-item">
+                <h3>Maintenance & Support</h3>
+                <p>Preventative maintenance, regular servicing, and ongoing support contracts for peace of mind and optimal device health.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <h2>Our Expertise</h2>
+        <p>With 15 years of experience gained working extensively in Saudi Arabia, our proprietor Mohammed Abdul Thahseen leads a skilled team that offers unmatched expertise in computer and laptop hardware and software solutions. We pride ourselves on delivering prompt, efficient, and effective service with a customer-first approach.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-info">
+            <p><span>Proprietor:</span> Mohammed Abdul Thahseen</p>
+            <p><span>Phone:</span> <a href="tel:+917331159692">+91 73311 59692</a></p>
+            <p><span>Email:</span> <a href="mailto:abdultaheseem@gmail.com">abdultaheseem@gmail.com</a></p>
+            <p><span>Address:</span> 9-4-321, Saptagiri Colony, Karimnagar, Telangana, India - 505001</p>
+            <p><span>Instagram:</span> <a href="https://instagram.com/ma.taheseem" target="_blank" rel="noopener noreferrer">@ma.taheseem</a></p>
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Zoya - Computer & Laptop Solutions. All rights reserved.
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelectorAll('nav ul li a').forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+                const target = document.querySelector(link.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+</html>
